@@ -6,10 +6,8 @@
 
 function call_onClickItemProc( evt, code )
 {
-	var mapCode = getMapCode();
-	var mapType = getMapType();
-	
-	var url = "../info_" + mapType + "/" + mapCode + "/" + code + ".html";
+	// Canonical connector pages live in info/all/ (per-system/routing copies were duplicates).
+	var url = "../info/all/" + code + ".html";
 	showInfo( url );
 	
 	if( !isNetscape4() ){
