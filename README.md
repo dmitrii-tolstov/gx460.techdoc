@@ -1,1 +1,1 @@
-https://d-tolstov.github.io/gx460.techdoc/
+https://dmitrii-tolstov.github.io/gx460.techdoc/
