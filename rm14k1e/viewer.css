@@ -180,12 +180,23 @@ body.viewer {
 }
 
 @media (max-width: 900px) {
+  /* Page scrolls as a whole so headers leave the viewport */
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+  }
+
   body.viewer {
     --header-h: auto;
-    grid-template-rows: auto 1fr;
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
   }
 
   .viewer-header {
+    position: static;
     grid-template-columns: 1fr;
     align-items: start;
     gap: 8px;
@@ -227,12 +238,21 @@ body.viewer {
 
   .viewer-main,
   .viewer-main.has-local {
-    grid-template-columns: 1fr;
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+
+  .viewer-panel,
+  .viewer-content {
+    overflow: visible;
+    height: auto;
+    min-height: 0;
   }
 
   .viewer-panel#groups-pane,
   .viewer-panel#local-pane {
-    max-height: 180px;
+    max-height: none;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }

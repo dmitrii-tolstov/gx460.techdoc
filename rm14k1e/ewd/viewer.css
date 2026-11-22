@@ -487,21 +487,74 @@ body.ewd-viewer.mode-conn .ewd-conn {
 }
 
 @media (max-width: 900px) {
+  body.viewer.ewd-viewer {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .ewd-toolbar {
+    position: static;
+  }
+
   .ewd-toolbar-extra {
     margin-left: 0;
   }
 
-  body.ewd-viewer.mode-menu .ewd-body,
-  body.ewd-viewer.mode-conn .ewd-body,
+  .ewd-body {
+    display: block;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
   body.ewd-viewer.mode-diagram .ewd-diagram {
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(120px, 28%) 1fr;
+    display: block;
+    height: auto;
+  }
+
+  .ewd-diag-left,
+  .ewd-diag-right {
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+
+  .ewd-diag-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  body.ewd-viewer.mode-conn .ewd-conn {
+    display: block;
+    height: auto;
+  }
+
+  .ewd-category,
+  .ewd-conn,
+  .ewd-list,
+  .ewd-work,
+  .ewd-diagram,
+  .ewd-diag-lists,
+  .ewd-diag-info,
+  .ewd-conn-lists {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
   }
 
   .ewd-category,
   .ewd-conn {
     border-right: none;
     border-bottom: 1px solid var(--border);
+  }
+
+  /* Keep PDF/diagram frames usable after chrome scrolls away */
+  .ewd-work,
+  .ewd-diag-fig,
+  .ewd-work iframe {
+    min-height: 70vh;
   }
 
   .ewd-popup.is-open,

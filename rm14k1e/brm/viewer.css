@@ -140,13 +140,35 @@ body.viewer.brm-viewer {
 }
 
 @media (max-width: 900px) {
+  body.viewer.brm-viewer {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
   .brm-body {
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(160px, 34%) 1fr;
+    display: block;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
   }
 
   .brm-menu {
+    height: auto;
+    max-height: none;
+    overflow: visible;
     border-right: none;
     border-bottom: 1px solid var(--border);
+  }
+
+  .brm-work {
+    height: auto;
+    min-height: 70vh;
+    overflow: visible;
+  }
+
+  .brm-work iframe {
+    min-height: 70vh;
   }
 }
