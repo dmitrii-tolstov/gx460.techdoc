@@ -1,0 +1,1 @@
+(window.__TD_DATA__=window.__TD_DATA__||{})["local:local_rm0000039bf00gx"]={bodyB64:"PGgzPlBPV0VSIFdJTkRPVyBSRUdVTEFUT1IgTU9UT1IgKGZvciBSZWFyIERvb3IpICZndDsgQ09NUE9ORU5UUzwvaDM+PGJyPjxvbCBjbGFzcz0ic3RlcDEtbnVtIj48L29sPjxvbCBjbGFzcz0ic3RlcDEtbnVtIj48L29sPg==",bodyClass:"",base:"repair2/html/contents/local_rm0000039bf00gx.html"};

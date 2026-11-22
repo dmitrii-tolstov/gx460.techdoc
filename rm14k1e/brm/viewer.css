@@ -1,0 +1,152 @@
+/* BRM hybrid shell: shared chrome + DOM menu + PDF iframe */
+
+body.viewer.brm-viewer {
+  --header-h: auto;
+  --brm-menu-w: 280px;
+  grid-template-rows: auto 1fr;
+}
+
+.brm-body {
+  display: grid;
+  grid-template-columns: var(--brm-menu-w) 1fr;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.brm-menu {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 10px 8px 24px;
+  border-right: 1px solid var(--border);
+  background: #e9eeea;
+}
+
+.brm-menu-title {
+  margin: 0 0 12px;
+  padding: 6px 8px;
+  text-align: center;
+  font: bold 10pt Verdana, sans-serif;
+  color: #fff;
+  background: #666;
+}
+
+.brm-group {
+  margin: 0 0 8px;
+}
+
+.brm-group-btn {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-left: 10px solid #b7c4ca;
+  background: #fff;
+  color: #111;
+  font: 10pt Verdana, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.brm-group-btn:hover,
+.brm-group.is-open > .brm-group-btn {
+  background: #c6cfd3;
+  color: #111;
+}
+
+.brm-group.is-open > .brm-group-btn {
+  background: #a9b2b7;
+  font-weight: bold;
+}
+
+/* Keep closed items in DOM (off-canvas) so Translate can see them */
+.brm-items {
+  position: absolute;
+  left: -10000px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.brm-group.is-open > .brm-items {
+  position: static;
+  left: auto;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  pointer-events: auto;
+  margin: 4px 0 8px 8px;
+}
+
+.brm-item {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin: 0 0 4px;
+  padding: 4px 6px;
+  color: #111;
+  font: 10pt Verdana, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.brm-item::before {
+  content: "·";
+  flex: 0 0 auto;
+  color: #555;
+  font-weight: bold;
+}
+
+.brm-item:hover,
+.brm-item.is-active {
+  background: #d0dbe0;
+  color: #111;
+}
+
+.brm-work {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.brm-hint {
+  margin: 48px 24px;
+  color: #444;
+  font: 11pt Georgia, "Times New Roman", serif;
+}
+
+.brm-work iframe {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #ddd;
+}
+
+.brm-work.has-pdf .brm-hint {
+  display: none;
+}
+
+.brm-work.has-pdf iframe {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .brm-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(160px, 34%) 1fr;
+  }
+
+  .brm-menu {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}

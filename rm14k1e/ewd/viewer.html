@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lexus TechDoc — Electrical Wiring Diagram</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link href="../viewer.css" rel="stylesheet" type="text/css">
+  <link href="viewer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="viewer ewd-viewer mode-menu">
+  <header class="viewer-header">
+    <div class="viewer-brand">
+      <img class="logo" src="../image/logo.png" alt="logo">
+      <div>
+        <p class="system-name">Lexus TechDoc</p>
+        <nav class="viewer-nav" aria-label="Manuals">
+          <a href="../viewer.html">Repair Manual</a>
+          <a href="../ncf/viewer.html">New Car Features</a>
+          <a class="active" href="viewer.html">Electrical Wiring Diagram</a>
+          <a href="../brm/viewer.html">Body Repair</a>
+          <a href="../sds/sds.html" target="_blank" rel="noopener">Service Data Sheet</a>
+        </nav>
+      </div>
+    </div>
+    <div class="viewer-model">
+      <div class="modelname">GX460 / URJ150</div>
+      <div class="pubno">Your select: GX 460</div>
+    </div>
+  </header>
+
+  <div class="ewd-toolbar" role="toolbar" aria-label="EWD navigation">
+    <div class="ewd-toolbar-controls">
+      <a class="ewd-btn control" href="#" onclick="call_runOnClickTop(); return false;">Top</a>
+      <a class="ewd-btn control" href="#" onclick="call_runOnClickBack(); return false;">Back</a>
+      <a class="ewd-btn control" href="#" onclick="call_runOnClickNew(); return false;">New</a>
+    </div>
+    <div class="ewd-toolbar-nav">
+      <a class="ewd-btn" href="#" onclick="call_runOnClickLocation(); return false;">Location</a>
+      <a class="ewd-btn" href="#" data-ewd-popup-toggle onclick="call_runOnClickDiagram(); return false;">Wiring Diagram</a>
+      <a class="ewd-btn" href="#" data-ewd-popup-toggle onclick="call_runOnClickList(); return false;">Chart / List</a>
+    </div>
+    <div class="ewd-toolbar-extra">
+      <a class="ewd-btn" href="#" onclick="call_runOnClickIntro(); return false;">Introduction</a>
+    </div>
+
+    <form name="ewd-codes" hidden>
+      <input type="hidden" name="ps-code" value="SYS035">
+      <input type="hidden" name="gp-code" value="GP">
+    </form>
+
+    <!-- Popups stay in DOM (off-canvas when closed) so Translate can see labels -->
+    <div id="d_divPopupDiagram" class="ewd-popup">
+      <table cellspacing="0" cellpadding="3">
+        <tr>
+          <td class="popup-item">
+            <a class="popup-item" href="#" onclick="call_runOnClickPopupItem('diag_system'); return false;">System Circuit</a>
+          </td>
+          <td class="popup-item">
+            <a class="popup-item" href="#" onclick="call_runOnClickPopupItem('diag_ps'); return false;">Power Source</a>
+          </td>
+          <td class="popup-item">
+            <a class="popup-item" href="#" onclick="call_runOnClickPopupItem('diag_gp'); return false;">Ground Point</a>
+          </td>
+          <td class="popup-item">
+            <a class="popup-item" href="#" onclick="call_runOnClickPopupItem('diag_overall'); return false;">Overall EWD</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="d_divPopupList" class="ewd-popup">
+      <table cellspacing="0" cellpadding="3">
+        <tr>
+          <td class="popup-item">
+            <a class="popup-item" href="#" onclick="call_runOnClickPopupItem('list_conn'); return false;">Connector List</a>
+          </td>
+          <td class="popup-item">
+            <a class="popup-item" href="#" onclick="call_runOnClickPopupItem('list_ps'); return false;">Power Source</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="ewd-body">
+    <aside class="ewd-category" id="ewd-category" aria-label="Categories">
+      <button type="button" class="ewd-cat-item" data-code="EG">Engine / Hybrid System</button>
+      <button type="button" class="ewd-cat-item" data-code="DR">Drivetrain</button>
+      <button type="button" class="ewd-cat-item" data-code="SS">Suspension</button>
+      <button type="button" class="ewd-cat-item" data-code="BK">Brake</button>
+      <button type="button" class="ewd-cat-item" data-code="ST">Steering</button>
+      <button type="button" class="ewd-cat-item" data-code="AV">Audio/Visual/Telematics</button>
+      <button type="button" class="ewd-cat-item" data-code="PS">Power Source / Network</button>
+      <button type="button" class="ewd-cat-item" data-code="IN">Vehicle Interior</button>
+      <button type="button" class="ewd-cat-item" data-code="EX">Vehicle Exterior</button>
+    </aside>
+
+    <aside class="ewd-conn" id="ewd-conn" aria-label="Connector list">
+      <div class="ewd-conn-search" id="ewd-conn-search"></div>
+      <div class="ewd-conn-lists" id="ewd-conn-lists"></div>
+    </aside>
+
+    <section class="ewd-list" id="ewd-list" aria-label="Title list">
+      <p class="ewd-list-hint" id="ewd-list-hint">Please choose a category on the left.</p>
+    </section>
+
+    <div class="ewd-work">
+      <iframe
+        id="winMain"
+        name="winMain"
+        title="EWD content"
+        src="about:blank"
+      ></iframe>
+    </div>
+
+    <!-- Diagram view: connector list + info in DOM (Translate), PDF in iframe -->
+    <div class="ewd-diagram" id="ewd-diagram" aria-label="Wiring diagram">
+      <div class="ewd-diag-left">
+        <div class="ewd-diag-lists" id="ewd-diag-lists"></div>
+        <div class="ewd-diag-info" id="ewd-diag-info">
+          <p class="ewd-diag-info-empty" id="ewd-diag-info-empty">Select a connector on the list.</p>
+        </div>
+      </div>
+      <div class="ewd-diag-right">
+        <div class="ewd-diag-titlebar" id="ewd-diag-titles"></div>
+        <iframe id="winFig" name="winFig" class="ewd-diag-fig" title="Diagram PDF" src="about:blank"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="menu-titles.data.js"></script>
+  <script src="ewd-pages.data.js"></script>
+  <script src="ewd-diagram-meta.js"></script>
+  <script src="ewd-diagram-lists.data.js"></script>
+  <script src="ewd-diagram-titles.data.js"></script>
+  <script src="ewd-conn-info.data.js"></script>
+  <script src="viewer.js?v=6"></script>
+</body>
+</html>

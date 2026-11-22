@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lexus TechDoc — New Car Features</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link href="repair2/css/global.css" rel="stylesheet" type="text/css">
+  <link href="repair2/css/local.css" rel="stylesheet" type="text/css">
+  <link href="repair2/css/contents.css" rel="stylesheet" type="text/css">
+  <link href="../viewer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="viewer">
+  <header class="viewer-header">
+    <div class="viewer-brand">
+      <img class="logo" src="../image/logo.png" alt="logo">
+      <div>
+        <p class="system-name">Lexus TechDoc</p>
+        <nav class="viewer-nav" aria-label="Manuals">
+          <a href="../viewer.html">Repair Manual</a>
+          <a class="active" href="viewer.html">New Car Features</a>
+          <a href="../ewd/viewer.html">Electrical Wiring Diagram</a>
+          <a href="../brm/viewer.html">Body Repair</a>
+          <a href="../sds/sds.html" target="_blank" rel="noopener">Service Data Sheet</a>
+        </nav>
+      </div>
+    </div>
+    <div class="viewer-model">
+      <div class="modelname">GX460 / URJ150</div>
+    </div>
+  </header>
+
+  <div class="viewer-main" id="viewer-main">
+    <aside class="viewer-panel" id="groups-pane" aria-label="Sections">
+      <table width="100%" cellspacing="0" cellpadding="2">
+        <tr>
+          <td height="25" class="sousetsu"><a href="#" class="sousetsu" title="General" onclick="clickMenu('V1')"><shortname>General</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr><td height="10"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Engine / Hybrid System" onclick="clickMenu('51')"><shortname>Engine / Hybrid System</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Drivetrain" onclick="clickMenu('52')"><shortname>Drivetrain</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Suspension" onclick="clickMenu('53')"><shortname>Suspension</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Brake" onclick="clickMenu('54')"><shortname>Brake</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Steering" onclick="clickMenu('55')"><shortname>Steering</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Audio/Visual/Telematics" onclick="clickMenu('56')"><shortname>Audio/Visual/Telematics</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Power Source / Network" onclick="clickMenu('57')"><shortname>Power Source / Network</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Vehicle Interior" onclick="clickMenu('58')"><shortname>Vehicle Interior</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+        <tr>
+          <td height="25" class="menu"><a href="#" class="menu" title="Vehicle Exterior" onclick="clickMenu('59')"><shortname>Vehicle Exterior</shortname></a></td>
+        </tr>
+        <tr><td height="4"></td></tr>
+      </table>
+    </aside>
+    <aside class="viewer-panel" id="local-pane" aria-label="In-page topics"></aside>
+    <main class="viewer-content" id="content-wrap">
+      <div class="viewer-status" id="viewer-status" hidden></div>
+      <div id="content-pane"></div>
+    </main>
+  </div>
+
+  <script>
+    window.TECHDOC_VIEWER = {
+      title: "New Car Features",
+      welcomeHtml:
+        "<h1>Lexus TechDoc — New Car Features</h1>" +
+        "<p>Select a section on the left. Content is shown in this page so browser translation can work — including offline (file://).</p>"
+    };
+  </script>
+  <script src="repair2/js/jaspa.js"></script>
+  <script src="../viewer.js?v=5"></script>
+</body>
+</html>
